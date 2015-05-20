@@ -1,0 +1,68 @@
+<assembly>
+
+	<baseDirectory />
+
+	<formats>
+		<format>war</format>
+		<format>dir</format>
+	</formats>
+
+	<dependencySets>
+		<dependencySet>
+			<useProjectArtifact>false</useProjectArtifact>
+			<outputDirectory>WEB-INF/lib</outputDirectory>
+			<excludes>
+				<exclude>*:war</exclude>
+				<exclude>*:zip</exclude>
+				<exclude>*:pom</exclude>
+			</excludes>
+		</dependencySet>
+
+	</dependencySets>
+
+
+	<fileSets>
+		<fileSet>
+			<directory>src/main/webapps/WEB-INF</directory>
+			<outputDirectory>/WEB-INF</outputDirectory>
+			<includes>
+				<include>web.xml</include>
+			</includes>
+			<fileMode>777</fileMode>
+			<directoryMode>777</directoryMode>
+			<lineEnding>unix</lineEnding>
+		</fileSet>
+		<fileSet>
+			<directory>src/main/webapps/WEB-INF/classes</directory>
+			<outputDirectory>/WEB-INF/classes</outputDirectory>
+			<includes>
+				<include>config.properties</include>
+				<include>log4j.properties</include>
+			</includes>
+			<fileMode>777</fileMode>
+			<directoryMode>777</directoryMode>
+			<lineEnding>unix</lineEnding>
+		</fileSet>
+		<fileSet>
+			<directory>src/main/webapps/WEB-INF</directory>
+			<outputDirectory>/WEB-INF/modules.conf/HtmlSample
+			</outputDirectory>
+			<includes>
+				<include>customizationRules.xml</include>
+			</includes>
+			<fileMode>777</fileMode>
+			<directoryMode>777</directoryMode>
+			<lineEnding>unix</lineEnding>
+		</fileSet>
+		<fileSet>
+			<directory>src/main/webapps/WEB-INF/spring</directory>
+			<outputDirectory>WEB-INF/spring</outputDirectory>
+			<includes>
+				<include>**</include>
+			</includes>
+			<useDefaultExcludes>true</useDefaultExcludes>
+			<fileMode>0644</fileMode>
+			<directoryMode>0755</directoryMode>
+		</fileSet>
+	</fileSets>
+</assembly>
