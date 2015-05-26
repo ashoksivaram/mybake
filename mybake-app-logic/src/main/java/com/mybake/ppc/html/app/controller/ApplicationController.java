@@ -24,6 +24,24 @@ public class ApplicationController {
 	public ApplicationController() {
 
 	}
+	
+	@RequestMapping(value = "/userLogin", method = RequestMethod.GET)
+	public @ResponseBody ResultObject userLogin(@RequestParam(value = "userName") String userName, @RequestParam(value = "password") String password) {
+		AppLogManager.info("********** User Login reqquested for : " + userName + " Starts **********");
+		ResultObject result  = new ResultObject();
+		if (null != userName && null != password && userName.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin")) {
+			result.setMessage(StringConstants.OK);
+			result.setSeverity(Severity.REPORT.getValue());
+			AppLogManager.error("Logged in succefully.");
+		}
+		else {
+			result.setMessage(StringConstants.ERROR);
+			result.setSeverity(Severity.ERROR.getValue());
+			AppLogManager.error("Unable to login.");
+		}
+		AppLogManager.info("********** User Login reqquested for : " + userName + " Ends **********");
+		return result;
+	}
 
 	@RequestMapping(value = "/createNewBill", method = RequestMethod.GET)
 	public @ResponseBody ResultObject createNewBill(@RequestParam(value = "userId") String userId) {
@@ -32,7 +50,6 @@ public class ApplicationController {
 		RequestHandler createNewBillRequestHandler = factory.getCreateNewBillRequestHandler();
 		if (null != createNewBillRequestHandler) {
 			result = createNewBillRequestHandler.handleRequest(userId);
-
 		}
 		else {
 			result = new ResultObject();
