@@ -25,6 +25,10 @@ public class ApplicationController {
 
 	}
 	
+	public ApplicationController(RequestHandlerFactory factory) {
+		this.factory = factory;
+	}
+	
 	@RequestMapping(value = "/userLogin", method = RequestMethod.GET)
 	public @ResponseBody ResultObject userLogin(@RequestParam(value = "userName") String userName, @RequestParam(value = "password") String password) {
 		AppLogManager.info("********** User Login reqquested for : " + userName + " Starts **********");

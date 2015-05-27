@@ -45,7 +45,7 @@
 		</fileSet>
 		<fileSet>
 			<directory>src/main/webapps/WEB-INF</directory>
-			<outputDirectory>/WEB-INF/modules.conf/HtmlSample
+			<outputDirectory>/WEB-INF/modules.conf/mybake
 			</outputDirectory>
 			<includes>
 				<include>customizationRules.xml</include>

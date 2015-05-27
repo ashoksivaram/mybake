@@ -20,7 +20,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>htmlsample</finalName>
+		<finalName>mybake</finalName>
 		<plugins>
 			<plugin>
 				<groupId>com.atlassian.maven.plugins</groupId>
