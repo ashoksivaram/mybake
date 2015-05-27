@@ -11,6 +11,7 @@
       <module>mybake-uiobjects</module>
       <module>mybake-dm-access</module>
       <module>mybake-app-logic</module>
+      <module>mybake-client</module>
       <module>mybake-war</module>
       <module>mybake-test-automation</module>
   </modules>
