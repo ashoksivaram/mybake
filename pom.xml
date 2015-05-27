@@ -8,6 +8,7 @@
   <name>mybake</name>
   <url>http://maven.apache.org</url>
   <modules>
+      <module>mybake-model</module>
       <module>mybake-uiobjects</module>
       <module>mybake-dm-access</module>
       <module>mybake-app-logic</module>
