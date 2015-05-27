@@ -8,3 +8,5 @@ mybake-war/.classpath
 mybake-model/.classpath
 
 *.prefs
+
+mybake-war/.classpath
