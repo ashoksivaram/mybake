@@ -15,9 +15,31 @@
       <module>mybake-client</module>
       <module>mybake-war</module>
       <module>mybake-test-automation</module>
+      <module>mybake-billing</module>
+      <module>mybake-common</module>
   </modules>
   <dependencyManagement>
   <dependencies>
+      <dependency>
+          <groupId>javax.jdo</groupId>
+          <artifactId>jdo-api</artifactId>
+          <version>3.0.1</version>
+      </dependency>
+      <dependency>
+          <groupId>org.datanucleus</groupId>
+          <artifactId>datanucleus-core</artifactId>
+          <version>3.1.4</version>
+      </dependency>
+      <dependency>
+          <groupId>com.google.appengine.orm</groupId>
+          <artifactId>datanucleus-appengine</artifactId>
+          <version>2.1.2</version>
+      </dependency>
+      <dependency>
+          <groupId>org.datanucleus</groupId>
+          <artifactId>datanucleus-api-jdo</artifactId>
+          <version>3.1.3</version>
+      </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -25,12 +47,93 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+        <groupId>com.sun.jersey</groupId>
+        <artifactId>jersey-client</artifactId>
+        <version>1.19</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sun.jersey.contribs</groupId>
+        <artifactId>jersey-multipart</artifactId>
+        <version>1.19</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sun.jersey</groupId>
+        <artifactId>jersey-server</artifactId>
+        <version>1.19</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sun.jersey</groupId>
+        <artifactId>jersey-bundle</artifactId>
+        <version>1.19</version>
+    </dependency>
+    <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>20140107</version>
+    </dependency>
+    <dependency>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>2.3.1</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sun.jersey.contribs</groupId>
+        <artifactId>jersey-spring</artifactId>
+        <version>1.19</version>
+        <exclusions>
+            <exclusion>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>com.sun.jersey</groupId>
+                <artifactId>jersey-server</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>com.sun.jersey</groupId>
+        <artifactId>jersey-server</artifactId>
+        <version>1.19</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sun.jersey</groupId>
+        <artifactId>jersey-core</artifactId>
+        <version>1.19</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sun.jersey</groupId>
+        <artifactId>jersey-json</artifactId>
+        <version>1.19</version>
+    </dependency>
+    <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>servlet-api</artifactId>
         <version>2.3</version>
         <scope>provided</scope>
     </dependency>
-    
+    <dependency>
+        <groupId>com.google.appengine</groupId>
+        <artifactId>appengine-api-1.0-sdk</artifactId>
+        <version>${appengine.target.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>com.google.appengine</groupId>
+        <artifactId>appengine-testing</artifactId>
+        <version>${appengine.target.version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.google.appengine</groupId>
+        <artifactId>appengine-api-stubs</artifactId>
+        <version>${appengine.target.version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-core</artifactId>
@@ -80,9 +183,6 @@
         <artifactId>aspectjtools</artifactId>
         <version>1.6.12</version>
     </dependency>
-    
-    
-    
     <dependency>
         <groupId>javax.xml.stream</groupId>
         <artifactId>stax-api</artifactId>
@@ -126,20 +226,35 @@
         <artifactId>maven-jaxb-plugin</artifactId>
         <version>1.1.0</version>
     </dependency>
-    
-    
-    
     <dependency>
         <groupId>uk.com.robust-it</groupId>
         <artifactId>cloning</artifactId>
         <version>1.7.9</version>
     </dependency>
-
   </dependencies>
   </dependencyManagement>
-  <properties>
-      
-      <spring.version>3.2.1.RELEASE</spring.version>
-      
-  </properties>
+  <build>
+      <plugins>
+          <plugin>
+              <groupId>com.google.appengine</groupId>
+              <artifactId>appengine-maven-plugin</artifactId>
+              <version>1.9.0-maven3.0</version>
+              <configuration>
+                  <fullScanSeconds>1</fullScanSeconds>
+                  <server>preview.appengine.google.com</server>
+              </configuration>
+          </plugin>
+          <plugin>
+              <groupId>com.google.appengine</groupId>
+              <artifactId>gcloud-maven-plugin</artifactId>
+              <version>0.9.58.v20150505</version>
+          </plugin>
+      </plugins>
+  </build>
+<properties>
+    <appengine.app.version>1</appengine.app.version>
+    <appengine.target.version>1.9.0</appengine.target.version>
+    <spring.version>3.2.1.RELEASE</spring.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+</properties>
 </project>
