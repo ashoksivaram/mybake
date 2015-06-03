@@ -1,7 +1,7 @@
 
 mybake-war/.classpath
 
-.project
+**/*.project
 
 mybake-war/.classpath
 
@@ -10,3 +10,7 @@ mybake-model/.classpath
 *.prefs
 
 mybake-war/.classpath
+
+**/*.log
+
+**/*.classpath

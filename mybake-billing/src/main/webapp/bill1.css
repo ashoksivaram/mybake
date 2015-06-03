@@ -1,0 +1,182 @@
+.clockStyle {
+	background-color: #000;
+	border: #999 2px inset;
+	padding: 6px;
+	color: #0FF;
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: 2px;
+	display: inline;
+	float: right;
+	border-radius: 100px;
+}
+
+.container-header {
+	font-size: 10px;
+	border-bottom: 1px solid #444;
+	padding-bottom: 5px;
+}
+
+.input-field-1 {
+	margin-top: 30px;
+}
+
+.tableborder {
+	border: 1px solid;
+}
+
+.input-field-1 input {
+	width: 200px;
+	height: 37px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+}
+
+.button input[type="submit"] {
+	background-color: #444;
+	padding: 8px;
+	color: #fff;
+	border-radius: 4px;
+    moz-border-radius: 4px;
+    webkit-border-radius: 4px;
+	border: 1px solid;
+	width: 114px;
+	font-size: 17px;
+}
+
+.button {
+	overflow: hidden;
+	height: auto;
+	margin-top: 30px;
+}
+
+span.gap0 {
+	margin-right: 30px;
+}
+
+span.gap1 {
+	margin-right: 30px;
+}
+
+span.gap2 {
+	margin-right: 55px;
+}
+
+.form-fields-1 {
+	float: left;
+	width: 47%;
+}
+
+.form-fields {
+	overflow: hidden;
+	height: auto;
+	margin: 0 auto;
+	width: 665px;
+	margin-top: 20px;
+	border-bottom: 2px solid #ccc;
+}
+
+.form-fields-2 {
+	float: right;
+	width: %;
+	/* margin-right: 196px; */
+}
+
+span.gap3 {
+	margin-right: 50px;
+}
+
+span.gap4 {
+	margin-right: 15px;
+}
+
+span.gap5 {
+	margin-right: 30px;
+}
+
+span.gap12 {
+	margin-right: 72px;
+}
+
+span.gap6 {
+	margin-right: 37px;
+}
+
+span.gap7 {
+	margin-right: 30px;
+}
+
+span.gap8 {
+	margin-right: 63px;
+}
+
+span.gap9 {
+	margin-right: 25px;
+}
+
+.save {
+	float: left;
+	width: 20%;
+}
+
+.Ditem {
+	float: left;
+	width: 20%;
+}
+
+.neworder {
+	float: left;
+	width: 20%;
+}
+
+.clear {
+	float: left;
+	width: 20%
+}
+
+.form-fields input {
+	height: 25px;
+	border: 1px solid #444;
+	border-radius: 3px;
+}
+
+.button input[type="submit"]:hover {
+	background-color: #ccc;
+	padding: 8px;
+	color: #444;
+	border-radius: 4px;
+    moz-border-radius: 4px;
+    webkit-border-radius: 4px;
+	border: 1px solid #ccc;
+	width: 116px;
+	font-size: 17px;
+}
+
+body {
+	background-color: antiquewhite;
+}
+
+table#sample {
+	border: 1px solid;
+	margin-top: 20px;
+	width: 100%;
+}
+
+table#sample th {
+	
+}
+
+table#sample td {
+	padding: 10px;
+	border: solid #000 px;
+}
+
+.billing {
+	background-color: gray;
+}
+
+.container {
+	margin-left: 20px;
+	margin-right: 20px;
+}
