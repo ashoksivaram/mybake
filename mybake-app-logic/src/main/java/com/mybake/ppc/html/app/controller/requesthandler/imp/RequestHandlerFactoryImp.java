@@ -17,4 +17,8 @@ public class RequestHandlerFactoryImp implements RequestHandlerFactory {
 	public RequestHandler getCreateNewBillRequestHandler() {
 		return (CreateNewBillRequestHandlerImp) appContext.getBean("createNewBillRequestHandlerImp");
 	}
+
+	public RequestHandler getCreateUserRequestHandler() {
+		return (CreateNewUserRequestHandlerImp) appContext.getBean("createNewUserRequestHandlerImp");
+	}
 }

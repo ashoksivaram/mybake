@@ -4,6 +4,7 @@ public class JSUserInfo {
 
 	private String userId;
 	private String userName;
+	private JSFeatureList featureList;
 
 	public JSUserInfo() {
 
@@ -23,6 +24,14 @@ public class JSUserInfo {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public JSFeatureList getFeatureList() {
+		return featureList;
+	}
+
+	public void setFeatureList(JSFeatureList featureList) {
+		this.featureList = featureList;
 	}
 
 }

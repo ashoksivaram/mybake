@@ -13,10 +13,10 @@
       <module>mybake-dm-access</module>
       <module>mybake-app-logic</module>
       <module>mybake-client</module>
-      <module>mybake-war</module>
-      <module>mybake-test-automation</module>
       <module>mybake-billing</module>
       <module>mybake-common</module>
+      <module>mybake-war</module>
+      <module>mybake-test-automation</module>
   </modules>
   <dependencyManagement>
   <dependencies>

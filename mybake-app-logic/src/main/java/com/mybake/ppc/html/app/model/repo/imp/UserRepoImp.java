@@ -2,11 +2,13 @@ package com.mybake.ppc.html.app.model.repo.imp;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
 import com.mybake.poc.html.uiobjects.JSUserInfo;
 import com.mybake.ppc.html.app.model.repo.UserRepo;
+import com.mybake.ppc.model.usermanagement.User;
 
 @Component
 public class UserRepoImp implements UserRepo {
@@ -42,6 +44,11 @@ public class UserRepoImp implements UserRepo {
 				}
 			}
 		}
+		return null;
+	}
+
+	public Map<String, User> getUserMap() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -9,11 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mybake.poc.html.uiobjects.JSFeatureList;
+import com.mybake.poc.html.uiobjects.JSUserInfo;
 import com.mybake.poc.html.uiobjects.ResultObject;
 import com.mybake.ppc.html.app.common.AppLogManager;
 import com.mybake.ppc.html.app.common.StringConstants;
 import com.mybake.ppc.html.app.controller.requesthandler.RequestHandler;
 import com.mybake.ppc.html.app.controller.requesthandler.RequestHandlerFactory;
+import com.mybake.ppc.model.usermanagement.User;
 
 @Controller
 public class ApplicationController {
@@ -35,6 +38,15 @@ public class ApplicationController {
 		ResultObject result  = new ResultObject();
 		if (null != userName && null != password && userName.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin")) {
 			result.setMessage(StringConstants.OK);
+			JSUserInfo userInfo = new JSUserInfo();
+			userInfo.setUserId(userName);
+			userInfo.setUserName("Administrator");
+			JSFeatureList featureList = new JSFeatureList();
+			featureList.setBilling(true);
+			featureList.setReports(true);
+			featureList.setInventory(true);
+			userInfo.setFeatureList(featureList);
+			result.setObject(userInfo);
 			result.setSeverity(Severity.REPORT.getValue());
 			AppLogManager.error("Logged in succefully.");
 		}
@@ -47,6 +59,24 @@ public class ApplicationController {
 		return result;
 	}
 
+	@RequestMapping(value = "/createUser", method = RequestMethod.POST)
+	public @ResponseBody ResultObject createUser(@RequestParam(value = "user") User user, @RequestParam(value = "userId") String userId) {
+		AppLogManager.info("********** Creat New User requested by  userId : " + userId + " Starts **********");
+		ResultObject result = null;
+		RequestHandler createNewBillRequestHandler = factory.getCreateNewBillRequestHandler();
+		if (null != createNewBillRequestHandler) {
+			result = createNewBillRequestHandler.handleRequest(userId);
+		}
+		else {
+			result = new ResultObject();
+			result.setMessage(StringConstants.ERROR);
+			result.setSeverity(Severity.ERROR.getValue());
+			AppLogManager.error("Unable to create Request Handler : Create New Bill.");
+		}
+		AppLogManager.info("********** Creat New User requested by  (" + userId + ") Ends **********");
+		return result;
+	}
+	
 	@RequestMapping(value = "/createNewBill", method = RequestMethod.GET)
 	public @ResponseBody ResultObject createNewBill(@RequestParam(value = "userId") String userId) {
 		AppLogManager.info("********** Creat New bill requested by  userId : " + userId + " Starts **********");

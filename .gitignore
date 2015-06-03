@@ -10,3 +10,23 @@ mybake-model/.classpath
 *.prefs
 
 mybake-war/.classpath
+
+mybake-billing/.classpath
+
+mybake-billing/.classpath
+
+mybake-billing/.project
+
+*.prefs
+
+mybake-billing/.settings/org.eclipse.wst.common.project.facet.core.prefs.xml
+
+mybake-billing/.settings/org.eclipse.wst.common.project.facet.core.xml
+
+mybake-common/.classpath
+
+mybake-common/.project
+
+mybake-billing/.classpath
+
+mybake-billing/.project

@@ -15,7 +15,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>mybake-uiobjects</artifactId>
+			<artifactId>mybake-model</artifactId>
 			<version>${project.version}</version>
 			<type>jar</type>
 		</dependency>

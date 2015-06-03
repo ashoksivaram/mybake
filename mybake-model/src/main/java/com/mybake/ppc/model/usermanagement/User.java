@@ -1,8 +1,9 @@
 package com.mybake.ppc.model.usermanagement;
 
-public class User {
+import com.mybake.ppc.model.common.ModelBase;
 
-	private String userId;
+public class User extends ModelBase {
+
 	private String userLoginId;
 	private UserType userType;
 	private String password;
@@ -10,14 +11,6 @@ public class User {
 
 	public User() {
 
-	}
-
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
 	}
 
 	public String getUserLoginId() {
