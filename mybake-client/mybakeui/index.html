@@ -1,74 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>HTML5 Login</title>
-	<link rel="stylesheet" href="normalize.css">
-	<link rel="stylesheet" href="style.css">
+<title>HTML5 Login</title>
+<link rel="stylesheet" href="normalize.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<script type = "text/javascript">
+	<script type="text/javascript">
+		function validate() {
+			var userName = document.myform.mybakeUsername.value;
+			var password = document.myform.userPassword.value;
 
-var count = 2;
-function validate() {
-var un = document.myform.username.value;
-var pw = document.myform.pword.value;
-var valid = false;
+			var req = new XMLHttpRequest();
+			req.overrideMimeType('application/json');
+			req.responseType = 'json';
 
-var unArray = ["admin"];  
-var pwArray = ["admin"]; 
+			// Create the callback:
+			req.onreadystatechange = function() {
+				if (req.readyState != 4)
+					return; // Not there yet
+				if (req.status != 200) {
+					window.alert("Unable to connect to the server.");
+					return;
+				} else {
+					var resultObject = req.response;
+					if (resultObject.message == 'OK') {
+						window
+								.alert("Login successful, write code to go to user home page.");
+						//Note : jsUserInfo contains all the required information to construction the home page.
+						var jsUserInfo = resultObject.object;
+					} else {
+						window.alert("Invalid username and password.");
+					}
+				}
+			}
+			var url = "http://localhost:8080/mybake/userLogin?userName="
+					+ userName + "&password=" + password;
+			req.open("GET", url, true);
+			req.send(null);
+		}
+	</script>
+	<section class="loginform cf">
 
-for (var i=0; i <unArray.length; i++) 
-{
-if ((un == unArray[i]) && (pw == pwArray[i])) 
-{
-valid = true;
-break;
-}
-}
+		<form name="myform">
+			<ul>
+				<li>
+					<p>
+						<label for="username">Sign in to your account</label> <input
+							type="text" name="mybakeUsername" placeholder="MyBake username"
+							required>
+					</p>
+				</li>
+				<li>
+					<p>
+						<label for="password"></label> <input type="password"
+							name="userPassword" placeholder="Password" required>
+					</p>
+				</li>
+				<li>
+					<p>
+						<input type="button" value="login" name="Submit"
+							onclick="validate()">
+					</p>
+				</li>
+			</ul>
+		</form>
 
-if (valid) 
-{
-alert ("Login was successful");
-window.location = "http://localhost:8080/mybake/userLogin?userName=admin&password=admin";
-return false;
-}
-
-var t = "tries";
-if (count == 1) {t = "try"}
-
-if (count >= 1)
- {
-alert ("Invalid username and/or password.")  
-document.myform.username.value = "";
-document.myform.pword.value = "";
-}
-
-else 
-{
-return false;
-}
-
-}
-
-</script>
-<section class="loginform cf">
-
-<form name = "myform">
-<ul>
- <li>
-  <p><label for="username">USER NAME</label>
-     <input type="text" name="username" placeholder="username"></p>
-  </li>
-  <li>
-  <p><label for="password">PASSWORD</label>
-    <input type="password" name="pword" placeholder="password"></p>
-  </li>
-  <li>
-   <p> <input type="button" value="login" name="Submit" onclick= "validate()"></p>
-   </li>
- </ul>
-</form>
-
-</section>
+	</section>
 </body>
 </html>
