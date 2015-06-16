@@ -1,7 +1,7 @@
 
 mybake-war/.classpath
 
-.project
+**/*.project
 
 mybake-war/.classpath
 
@@ -32,3 +32,7 @@ mybake-billing/.classpath
 mybake-billing/.project
 
 datanucleus.log
+
+**/*.log
+
+**/*.classpath
