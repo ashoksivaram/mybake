@@ -36,3 +36,20 @@ datanucleus.log
 **/*.log
 
 **/*.classpath
+*.class
+
+*.class
+
+mybake-common/target/mybake-common-1.0-SNAPSHOT.jar
+
+mybake-common/target/maven-archiver/pom.properties
+
+*.class
+
+*.class
+
+*.class
+
+*.class
+
+*.class
