@@ -1,6 +1,11 @@
 html {
-	background: url('http://subtlepatterns.com/patterns/wood_pattern.png');
+	background:url('http://subtlepatterns.com/patterns/wood_pattern.png');
 	font-size: 10pt;
+}
+html {
+background-size: 50px 50px;
+background-color: #fff0f5;
+
 }
 label {
 	display: block;
@@ -39,7 +44,8 @@ label {
 	display: inline;
 	float: left;
 }
-.loginform input:not([type=submit]) {
+.loginform input:not([type=submit])
+ {
 	padding: 5px;
 	margin-right: 10px;
 	border: 1px solid rgba(0, 0, 0, 0.3);
@@ -63,4 +69,38 @@ label {
 	margin-top: 15px;
 	border-radius: 3px;
 	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+}
+
+
+.t
+{
+ color:black;
+ background-color:#00ccff;
+ font-size:25px;
+} 	
+.tab
+{
+
+background-color:#336699;
+border-radius:20px;
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+border:thick blue solid;
+border-width:2px;
+border-color:blue;
+}	
+.p
+{
+font-family:'Times NewRoman';
+font-size:25pt;
+color:white;
+
+}
+#header {
+    background-color:#00ccff;
+    color:white;
+    text-align:center;
+    padding:0px;
+	color: black;
+	font-size:25pt;
 }
