@@ -53,3 +53,9 @@ mybake-common/target/maven-archiver/pom.properties
 *.class
 
 *.class
+
+mybake-common/target/classes/com/mybake/billing/Bill.class
+
+mybake-common/target/classes/com/mybake/billing/ItemizedBill.class
+
+*.class

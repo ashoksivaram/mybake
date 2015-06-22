@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML5 Login</title>
+<link rel="stylesheet" href="normalize.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<script type="text/javascript">
+		function validate() {
+			var userName = document.myform.mybakeUsername.value;
+			var password = document.myform.userPassword.value;
+
+			var req = new XMLHttpRequest();
+			req.overrideMimeType('application/json');
+			req.responseType = 'json';
+
+			// Create the callback:
+			req.onreadystatechange = function() {
+				if (req.readyState != 4)
+					return; // Not there yet
+				if (req.status != 200) {
+					window.alert("Unable to connect to the server.");
+					return;
+				} else {
+					var jsUserInfo = req.response;
+					if (req.statusText == 'OK') {
+						//window
+						//		.alert("Login successful, write code to go to user home page.");
+						//Note : jsUserInfo contains all the required information to construction the home page
+						document.homePage.disabled = false;
+						document.homePage.loginedInUserName.value = jsUserInfo.userName;
+						document.homePage.billing.disabled = !jsUserInfo.featureList.billing;
+						document.homePage.purchase.disabled = !jsUserInfo.featureList.purchase;
+						document.homePage.reports.disabled = !jsUserInfo.featureList.reports;
+						document.homePage.inventory.disabled = !jsUserInfo.featureList.inventory;
+						document.homePage.finance.disabled = !jsUserInfo.featureList.finance;
+
+					} else {
+						window.alert("Invalid username and password.");
+					}
+				}
+			}
+			var url = "/mybake/login/userLogin?userName="
+					+ userName + "&password=" + password;
+			req.open("GET", url, true);
+			req.send(null);
+		}
+
+		function lunchBillingModule(){
+			window.alert("Lunch Billing Module.");
+		}
+
+		function lunchPurchaseModule(){
+			window.alert("Lunch Purchase Module.");
+		}
+		function lunchReportsModule(){
+			window.alert("Lunch Reports Module.");
+		}
+		function lunchInventoryModule(){
+			window.alert("Lunch Inventory Module.");
+		}
+		function lunchFinanceModule(){
+			window.alert("Lunch Finance Module.");
+		}
+
+	</script>
+	<section class="loginform cf">
+
+		<form name="myform">
+			<ul>
+				<li>
+					<p>
+						<label for="username">Sign in to your account</label> <input
+							type="text" name="mybakeUsername" placeholder="MyBake username"
+							required>
+					</p>
+				</li>
+				<li>
+					<p>
+						<label for="password"></label> <input type="password"
+							name="userPassword" placeholder="Password" required>
+					</p>
+				</li>
+				<li>
+					<p>
+						<input type="button" value="login" name="Submit"
+							onclick="validate()">
+					</p>
+				</li>
+			</ul>
+		</form>
+	</section>
+
+	<section class="homePageClass">
+		<form name="homePage" disabled="true" type="hidden">
+			<ul>
+				<li>
+					<p>
+						<label>User Name : </label> <input
+							type="text" name="loginedInUserName" placeholder="Please login"
+							required readonly>
+					</p>
+				</li>
+
+			</ul>
+			<ul>
+				<li>
+					<p>
+						<input type="button" value="Billing" name="billing"
+							onclick="lunchBillingModule()" disabled="true">
+					</p>
+				</li>
+				<li>
+					<p>
+						<input type="button" value="Purchase" name="purchase"
+							onclick="lunchPurchaseModule()" disabled="true">
+					</p>
+				</li>
+				
+				<li>
+					<p>
+						<input type="button" value="Reports" name="reports"
+							onclick="lunchReportsModule()" disabled="true">
+					</p>
+				</li>
+				
+				<li>
+					<p>
+						<input type="button" value="Inventory" name="inventory"
+							onclick="lunchInventoryModule()" disabled="true">
+					</p>
+				</li>
+				
+				<li>
+					<p>
+						<input type="button" value="Finance" name="finance"
+							onclick="lunchFinanceModule()" disabled="true">
+					</p>
+				</li>
+				</ul>
+
+		</form>
+	</section>
+</body>
+</html>

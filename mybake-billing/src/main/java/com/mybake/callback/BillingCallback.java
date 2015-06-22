@@ -1,10 +1,7 @@
 package com.mybake.callback;
 
-import javax.jdo.PersistenceManager;
-
 import com.google.appengine.api.datastore.PostPut;
 import com.google.appengine.api.datastore.PutContext;
-import com.mybake.persistence.PersistenceManagerFactoryImpl;
 
 public class BillingCallback {
 	

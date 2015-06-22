@@ -8,5 +8,8 @@
         <dependent-module archiveName="mybake-inventory-1.0-SNAPSHOT.war" deploy-path="/" handle="module:/resource/mybake-inventory/mybake-inventory">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="mybake-login-1.0-SNAPSHOT.war" deploy-path="/" handle="module:/resource/mybake-login/mybake-login">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>
