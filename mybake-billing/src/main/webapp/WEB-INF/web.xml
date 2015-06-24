@@ -23,4 +23,7 @@
 		<servlet-name>MyBakeBillingService</servlet-name>
 		<url-pattern>/mybake/*</url-pattern>
 	</servlet-mapping>
+	<welcome-file-list>
+        <welcome-file>bill.html</welcome-file>
+    </welcome-file-list>
 </web-app>

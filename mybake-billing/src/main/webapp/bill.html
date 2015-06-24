@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Billing</title>
+<link rel="stylesheet" type="text/css" href="normalize.css">
+<link rel="stylesheet" type="text/css" href="bill1.css">
+<script type="text/javascript" language="javascript"
+	src="media/js/jquery.js"></script>
+<script>
+ jQuery(document).ready(function() {
+  $('button[name="neworder"]').on('click', function(){
+    var table = $('table[name="sample"]');
+    $row = $('<tr/>');
+    for(i=0; i<6; i++){
+        $col = $('<td contenteditable="true"/>');
+        $col.append(cols[i]);
+        $row.append($col);
+    }
+    $table.append($row);
+  });
+});
+ </script>
+</head>
+<body>
+	<div class="container">
+		<div class="container-header">
+			<span class="cutomer_name">Customer Name</span>
+		</div>
+		<div class="billing">
+			<p>
+				<span class="billing_order">Billing Order</span>
+			</p>
+		</div>
+		<div class="form-fields">
+			<p>
+			<center>
+				<span class="gap0">Bill No.</span><input type="text"> <span
+					class="total_amount">Total Amount </span><input type="text">
+			</center>
+			</p>
+			<div class="form-fields-1">
+				<table class="left_table" id="left_table" cellspacing="2"
+					cellpadding="1">
+					<tr>
+						<td align="right">Customer No</td>
+						<td><input type="text"></td>
+					</tr>
+					<tr>
+						<td align="right">Outlet No</td>
+						<td><input type="text"></td>
+					</tr>
+					<tr>
+						<td align="right">Created By</td>
+						<td><input type="text"></td>
+					</tr>
+					<tr>
+						<td align="right">Create Date/Time</td>
+						<td><input type="text"></td>
+					</tr>
+				</table>
+			</div>
+			<div class="form-fields-2">
+				<table class="right_table" id="right_table" cellspacing="2"
+					cellpadding="1">
+					<tr>
+						<td align="right">Tax Amount</td>
+						<td><input type="text"></td>
+					</tr>
+					<tr>
+						<td align="right">Advance Paid</td>
+						<td><input type="text"></td>
+					</tr>
+					<tr>
+						<td align="right">Balance</td>
+						<td><input type="text"></td>
+					</tr>
+					<tr>
+						<td align="right">Payment Type</td>
+						<td><input type="text"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="lower">
+			<table class="item_table" id="sample"
+				border="white">
+				<tr bgcolor="#696969">
+					<th>Item Number</th>
+					<th>Product No</th>
+					<th>Product Name</th>
+					<th>Quantity</th>
+					<th>Price</th>
+					<th>Currency</th>
+				</tr>
+				<tr>
+					<td class="1"><input type="text" style="width:98%; height:100%"></td>
+					<td class="2"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="3"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="4"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="5"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="6"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+				</tr>
+				<tr>
+					<td class="1"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="2"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="3"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="4"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="5"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="6"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+				</tr>
+				<tr>
+					<td class="1"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="2"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="3"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="4"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="5"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="6"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+				</tr>
+				<tr>
+					<td class="1"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="2"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="3"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="4"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="5"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+					<td class="6"><input type="text" id="tableinput" style="width:98%; height:100%"></td>
+				</tr>
+			</table>
+			<div class="button">
+				<div class="save">
+					<form action="">
+						<input type="submit" name="Save" value="Save" />
+					</form>
+				</div>
+
+				<div class="Ditem">
+					<form action="">
+						<input type="submit" name="Ditem" value="Delete Item" />
+					</form>
+				</div>
+
+				<div class="neworder">
+					<form action=" ">
+						<input type="submit" name="neworder" value="New Order" />
+					</form>
+				</div>
+
+				<div class="clear">
+					<form action="">
+						<input type="submit" name="clear" value="Clear" />
+					</form>
+				</div>
+
+				<div class="home">
+					<form action="">
+						<input type="submit" name="home" value="Home" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
